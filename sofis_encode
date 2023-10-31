@@ -1,2 +1,51 @@
-if __name__ == "__main__":
 
+# create menu function with starter display
+
+
+def menu():
+    print("Menu")
+    print("-------------")
+    print("1. Encode")
+    print("2. Decode")
+    print("3. Quit")
+
+# create selection function
+
+
+def choose_selection():
+    global selection
+    global password
+    selection = int(input(print('Please enter an option: ')))
+    while selection != 3:
+        if selection == 1:
+            password = input(print("Please enter your password to encode:"))
+            encode(password)
+            print("Your password has been encoded and stored!")
+            menu()
+            choose_selection()
+        if selection == 2:
+            # add decode function
+            menu()
+            choose_selection()
+
+
+# create encode function
+
+
+def encode(password):
+    for i in password:
+        x = int(i)
+        if x == 7:
+            x = 0
+        elif x == 8:
+            x = 1
+        elif x == 9:
+            x = 2
+        else:
+            x += 3
+    return password
+
+
+if __name__ == "__main__":
+    menu()
+    choose_selection()
