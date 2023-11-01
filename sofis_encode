@@ -13,7 +13,7 @@ def menu():
 
 
 def choose_selection():
-    global selection
+    global selection, password, encoded_password
     global password
     selection = int(input(print('Please enter an option: ')))
     while selection != 3:
