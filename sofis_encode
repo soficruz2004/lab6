@@ -1,71 +1,58 @@
-if __name__ == "__main__":
 
 # create menu function with starter display
 
 
-    def menu():
-        print("Menu")
-        print("-------------")
-        print("1. Encode")
-        print("2. Decode")
-        print("3. Quit")
+def menu():
+    print("Menu")
+    print("-------------")
+    print("1. Encode")
+    print("2. Decode")
+    print("3. Quit")
 
-    # create selection function
+# create selection function
 
 
-    def choose_selection():
-        global selection
-        global password
-        selection = int(input('Please enter an option: '))
-        while selection != 3:
-            if selection == 1:
-                password = input(print("Please enter your password to encode:"))
-                encode(password)
-                print("Your password has been encoded and stored!")
-                menu()
-                choose_selection()
-            if selection == 2:
+def choose_selection():
+    global selection
+    global password
+    selection = int(input(print('Please enter an option: ')))
+    while selection != 3:
+        if selection == 1:
+            password = input(print("Please enter your password to encode:"))
+            encode(password)
+            print("Your password has been encoded and stored!")
+            menu()
+            choose_selection()
+        if selection == 2:
             # add decode function
-                decoded_password = decode(encoded_password)
-                print("The encoded password is", encoded_password, "and the original password is", decoded_password, ".")
-                menu()
+            menu()
+            choose_selection()
 
 
-    # create encode function
+# create encode function
 
 
-    def encode(password):
-        for i in password:
-            x = int(i)
-            if x == 7:
-                x = 0
-            elif x == 8:
-                x = 1
-            elif x == 9:
-                x = 2
-            else:
-                x += 3
-        return password
-
-    #decode function
-    def decode(encoded_password):
-        decoded_password = ''
-        for i in encoded_password:
-            x = int(i)
-            if x == 0:
-                x = 7
-            elif x == 1:
-                x = 8
-            elif x == 2:
-                x = 9
-            else:
-                x -= 3
-            decoded_password += str(x)
-
-        return decoded_password
+def encode(password):
+    x = ""
+    for i in password:
+        i = int(i)
+        if i == 7:
+            i = 0
+            x = x + str(i)
+        elif i == 8:
+            i = 1
+            x = x + str(i)
+        elif i == 9:
+            i = 2
+            x = x + str(i)
+        else:
+            i += 3
+            x = x + str(i)
+    print(x)
 
 
+if __name__ == "__main__":
+    menu()
+    choose_selection()
 
-    if __name__ == "__main__":
-        menu()
-        choose_selection()
+
