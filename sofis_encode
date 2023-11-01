@@ -14,12 +14,11 @@ def menu():
 
 def choose_selection():
     global selection, password, encoded_password
-    global password
-    selection = int(input(print('Please enter an option: ')))
+    selection = int(input('Please enter an option: '))
     while selection != 3:
         if selection == 1:
-            password = input(print("Please enter your password to encode:"))
-            encode(password)
+            password = input("Please enter your password to encode:")
+            encoded_password = encode(password)
             print("Your password has been encoded and stored!")
             menu()
             choose_selection()
@@ -50,7 +49,7 @@ def encode(password):
         else:
             i += 3
             x = x + str(i)
-    print(x)
+    return x
 
 #decode function
 def decode(encoded_password):
