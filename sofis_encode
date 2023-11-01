@@ -25,6 +25,8 @@ def choose_selection():
             choose_selection()
         if selection == 2:
             # add decode function
+            decoded_password = decode(encoded_password)
+            print("The encoded password is", encoded_password, "and the original password is", decoded_password, ".")
             menu()
             choose_selection()
 
@@ -49,6 +51,24 @@ def encode(password):
             i += 3
             x = x + str(i)
     print(x)
+
+#decode function
+def decode(encoded_password):
+   decoded_password = ''
+   for i in encoded_password:
+       x = int(i)
+       if x == 0:
+           x = 7
+       elif x == 1:
+           x = 8
+       elif x == 2:
+           x = 9
+       else:
+           x -= 3
+       decoded_password += str(x)
+
+
+   return decoded_password
 
 
 if __name__ == "__main__":
